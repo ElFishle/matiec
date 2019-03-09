@@ -2,5 +2,5 @@ language: cpp
 compiler: gcc
 os: linux
 dist: xenial
-before-script: autoreconf -i
+before_script: autoreconf -i
 script: ./configure && make
