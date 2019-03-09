@@ -3,6 +3,8 @@ compiler: gcc
 os: linux
 dist: xenial
 before_script: autoreconf -i
+git:
+  depth: 3
 matrix:
   include:
     - env:
