@@ -1,7 +1,9 @@
 language: cpp
 compiler: gcc
 os: linux
-dist: xenial
+dist:
+  - xenial
+  - trusty
 before_script: autoreconf -i
 git:
   depth: 3
@@ -13,8 +15,12 @@ addons:
 
 matrix:
   include:
-    - script: ./configure && make
-    - script: ./configure --host=x84_64-w64-mingw32 && make
+    - os: linux
+      compiler: gcc
+      script: ./configure && make
+    - os: linux
+      compiler: x86_64-w32-w64-mingw32-g++
+      script: ./configure --host=x84_64-w64-mingw32 && make
       addons:
         apt:
           packages:
