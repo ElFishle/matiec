@@ -14,7 +14,7 @@ matrix:
       script: ./configure && make
     - env:
       - MATRIX_EVAL="PREFIX=x86_64-w64-mingw32 && CC=$PREFIX-gcc &&  CXX=$PREFIX-g++ &&  CPP=$PREFIX-cpp && RANLIB=$PREFIX-ranlib"
-    script: ./configure --host=x84_64-w64-mingw32 && make
+      script: ./configure --host=x84_64-w64-mingw32 && make
 
 
 before_install:
