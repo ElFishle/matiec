@@ -1,9 +1,7 @@
 language: cpp
 compiler: gcc
 os: linux
-dist:
-  - xenial
-  - trusty
+dist: xenial
 before_script: autoreconf -i
 git:
   depth: 3
