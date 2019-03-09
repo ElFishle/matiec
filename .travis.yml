@@ -16,13 +16,19 @@ matrix:
     - os: linux
       compiler: gcc
       script: ./configure && make
+      env:
+        - MATRIX_CC=gcc
+        - MATRIX_CXX=g++
     - os: linux
       compiler: x86_64-w64-mingw32-g++
       env:
-        - CC=x86_64-w64-mingw32-gcc
-        - CXX=x86_64-w64-mingw32-g++
+        - MATRIX_CC=x86_64-w64-mingw32-gcc
+        - MATRIX_CXX=x86_64-w64-mingw32-g++
       script: ./configure --host=x84_64-w64-mingw32 && make
       addons:
         apt:
           packages:
             - mingw-w64
+
+before_install:
+  - eval "CC=${MATRIX_CC} && CXX=${MATRIX_CXX}"
