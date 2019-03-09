@@ -13,17 +13,9 @@ addons:
 
 matrix:
   include:
-    - env:
-      - MATRIX_EVAL=""
-      script: ./configure && make
-    - env:
-      - MATRIX_EVAL="PREFIX=x86_64-w64-mingw32 && CC=$PREFIX-gcc &&  CXX=$PREFIX-g++ &&  CPP=$PREFIX-cpp && RANLIB=$PREFIX-ranlib"
-      script: ./configure --host=x84_64-w64-mingw32 && make
+    - script: ./configure && make
+    - script: ./configure --host=x84_64-w64-mingw32 && make
       addons:
         apt:
           packages:
             - mingw-w64
-
-
-before_install:
-    - eval "${MATRIX_EVAL}"
