@@ -3,10 +3,6 @@ compiler: gcc
 os: linux
 dist: xenial
 before_script: autoreconf -i
-addons:
-  apt:
-    packages:
-      - mingw-w64
 matrix:
   include:
     - env:
@@ -15,6 +11,10 @@ matrix:
     - env:
       - MATRIX_EVAL="PREFIX=x86_64-w64-mingw32 && CC=$PREFIX-gcc &&  CXX=$PREFIX-g++ &&  CPP=$PREFIX-cpp && RANLIB=$PREFIX-ranlib"
       script: ./configure --host=x84_64-w64-mingw32 && make
+      addons:
+        apt:
+          packages:
+            - mingw-w64
 
 
 before_install:
